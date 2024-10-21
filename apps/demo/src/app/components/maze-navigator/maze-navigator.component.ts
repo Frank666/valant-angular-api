@@ -12,7 +12,7 @@ export class MazeNavigatorComponent implements OnInit {
   constructor(private mazeService: MazeService) {}
 
   ngOnInit(): void {
-    this.currentPosition = { x: this.maze.startX, y: this.maze.startY }; // Inicializar posición
+    this.currentPosition = { x: this.maze.startX, y: this.maze.startY };
   }
 
   move(direction: string): void {
