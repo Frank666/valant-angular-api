@@ -1,31 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { LoggingService } from './logging/logging.service';
-import { StuffService } from './stuff/stuff.service';
+import { Component } from '@angular/core';
+import { NotificationService } from './services/notification.service';
+import { MazeService } from './services/MazeService';
 
 @Component({
   selector: 'valant-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   public title = 'Valant demo';
   public data: string[];
+  selectedMazeId: number | null = null;
+  maze: any; // Objeto para almacenar el laberinto
 
-  constructor(private logger: LoggingService, private stuffService: StuffService) {}
-
-  ngOnInit() {
-    this.logger.log('Welcome to the AppComponent');
-    this.getStuff();
+  constructor(private notificationService: NotificationService, private mazeService: MazeService) {
+    this.notificationService.notify$.subscribe((message) => {
+      alert(message);
+    });
   }
 
-  private getStuff(): void {
-    this.stuffService.getStuff().subscribe({
-      next: (response: string[]) => {
-        this.data = response;
-      },
-      error: (error) => {
-        this.logger.error('Error getting stuff: ', error);
-      },
-    });
+  onMazeUploaded(maze: any) {
+    this.maze = maze; // Almacenar el laberinto cargado
   }
 }

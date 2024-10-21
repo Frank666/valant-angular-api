@@ -1,0 +1,31 @@
+<div *ngIf="maze">
+  <h2>{{ maze.name }}</h2>
+
+  <table class="maze-table">
+    <tr *ngFor="let row of maze.definition; let y = index">
+      <td
+        *ngFor="let cell of row; let x = index"
+        [ngClass]="{
+          current: currentPosition.x === x && currentPosition.y === y,
+          path: cell === ' ',
+          wall: cell === '#'
+        }"
+      >
+        {{ cell }}
+      </td>
+    </tr>
+  </table>
+
+  <div class="button-container">
+    <p>Current Position: {{ currentPosition | json }}</p>
+
+    <button (click)="move('north')">North</button>
+    <button (click)="move('south')">South</button>
+    <button (click)="move('west')">West</button>
+    <button (click)="move('east')">East</button>
+  </div>
+
+  <div *ngIf="isAtEnd()" class="success-message">
+    <h3>Congratulations! You've reached the end!</h3>
+  </div>
+</div>

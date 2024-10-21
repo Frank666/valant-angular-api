@@ -5,4 +5,12 @@
 <main>
   <h2>Hi there</h2>
   <p>Thanks for being you.</p>
+
+  <div style="text-align: center">
+    <h1>Maze Navigator Game</h1>
+
+    <valant-maze-upload (mazeUploaded)="onMazeUploaded($event)"></valant-maze-upload>
+
+    <valant-maze-navigator *ngIf="maze" [maze]="maze"></valant-maze-navigator>
+  </div>
 </main>

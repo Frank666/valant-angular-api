@@ -1,0 +1,38 @@
+.maze-table {
+  border-collapse: collapse;
+  margin: 20px auto;
+}
+
+.maze-table td {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 24px;
+  border: 1px solid #ccc;
+  transition: background-color 0.3s;
+}
+
+.maze-table td.path {
+  background-color: #f0f0f0;
+}
+
+.maze-table td.wall {
+  background-color: #333;
+}
+
+.maze-table td.current {
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+}
+
+.button-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.success-message {
+  color: #4caf50;
+  text-align: center;
+  font-size: 24px;
+}

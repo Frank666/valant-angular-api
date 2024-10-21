@@ -1,0 +1,8 @@
+<div>
+  <h2>Available Mazes</h2>
+  <ul>
+    <li *ngFor="let maze of mazes" (click)="onSelectMaze(maze.id)">
+      {{ maze.name }}
+    </li>
+  </ul>
+</div>
