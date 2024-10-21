@@ -30,4 +30,8 @@ export class MazeService {
 
     return this.http.post<any>(url, JSON.stringify(direction), { headers });
   }
+
+  getMazeStatus(mazeId: number, x: number, y: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}${this.api}/${mazeId}/status?x=${x}&y=${y}`);
+  }
 }

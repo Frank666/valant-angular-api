@@ -19,10 +19,10 @@
   <div class="button-container">
     <p>Current Position: {{ currentPosition | json }}</p>
 
-    <button (click)="move('north')">North</button>
-    <button (click)="move('south')">South</button>
-    <button (click)="move('west')">West</button>
-    <button (click)="move('east')">East</button>
+    <button (click)="move('up')" [disabled]="!availableMoves.includes('up')">Up</button>
+    <button (click)="move('down')" [disabled]="!availableMoves.includes('down')">Down</button>
+    <button (click)="move('left')" [disabled]="!availableMoves.includes('left')">Left</button>
+    <button (click)="move('right')" [disabled]="!availableMoves.includes('right')">Right</button>
   </div>
 
   <div *ngIf="isAtEnd()" class="success-message">

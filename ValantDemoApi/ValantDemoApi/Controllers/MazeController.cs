@@ -70,11 +70,18 @@ namespace ValantDemoApi.Controllers
       }
 
       [HttpGet("{id}/status")]
-      public async Task<IActionResult> GetStatus(int id)
+    public async Task<IActionResult> GetAvailableMoves(int id, [FromQuery] int x, [FromQuery] int y)
+    {
+      try
       {
-        var position = await _playerPositionRepository.GetPositionByMazeIdAsync(id);
-        if (position == null) return NotFound();
-        return Ok("Keep going!");
+        var maze = await _mazeService.GetMazeAsync(id);
+        var availableMoves = await _mazeService.GetAvailableMovesAsync(maze, x, y);
+        return Ok(availableMoves);
       }
+      catch (Exception e)
+      {
+        return StatusCode(500, e.Message);
+      }
+    }
   }
 }

@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Caching.Memory;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using ValiantDemo.Abstractions.Dtos;
 using ValiantDemo.Abstractions.Services;
@@ -62,16 +63,16 @@ namespace ValiantDemo.Core.Services
 
       switch (direction.ToLower())
       {
-        case "north":
+        case "up":
           playerPosition.CurrentY -= 1;
           break;
-        case "south":
+        case "down":
           playerPosition.CurrentY += 1;
           break;
-        case "west":
+        case "left":
           playerPosition.CurrentX -= 1;
           break;
-        case "east":
+        case "right":
           playerPosition.CurrentX += 1;
           break;
         default:
@@ -89,16 +90,16 @@ namespace ValiantDemo.Core.Services
 
       switch (direction.ToLower())
       {
-        case "north":
+        case "up":
           newY -= 1;
           break;
-        case "south":
+        case "down":
           newY += 1;
           break;
-        case "west":
+        case "left":
           newX -= 1;
           break;
-        case "east":
+        case "right":
           newX += 1;
           break;
       }
@@ -110,6 +111,43 @@ namespace ValiantDemo.Core.Services
 
       return true;
     }
-     
+
+    private bool IsValidMove(int x, int y, List<List<string>> maze)
+    {
+      if (x < 0 || y < 0 || y >= maze.Count || x >= maze[y].Count)
+      {
+        return false;
+      }
+
+      return maze[y][x] != "#";
+    }
+
+    public async Task<List<string>> GetAvailableMovesAsync(Maze maze, int x, int y)
+    {
+      var mazeDefinition = maze;
+      var availableMoves = new List<string>();
+
+      if (IsValidMove(x, y - 1, mazeDefinition.Definition))
+      {
+        availableMoves.Add("up");
+      }
+
+      if (IsValidMove(x, y + 1, mazeDefinition.Definition))
+      {
+        availableMoves.Add("down");
+      }
+
+      if (IsValidMove(x - 1, y, mazeDefinition.Definition))
+      {
+        availableMoves.Add("left");
+      }
+
+      if (IsValidMove(x + 1, y, mazeDefinition.Definition))
+      {
+        availableMoves.Add("right");
+      }
+
+      return availableMoves;
+    }
   }
 }
