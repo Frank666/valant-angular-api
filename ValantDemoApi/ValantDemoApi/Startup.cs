@@ -4,6 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using ValiantDemo.Abstractions.Services;
+using ValiantDemo.Core.Services;
 
 namespace ValantDemoApi
 {
@@ -19,6 +21,10 @@ namespace ValantDemoApi
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
+      services.AddMemoryCache();
+      services.AddScoped<IMazeRepository, InMemoryMazeRepository>();
+      services.AddScoped<IPlayerPositionRepository, InMemoryPlayerPositionRepository>();
+      services.AddScoped<IMazeService, MazeService>();
       services.AddCors();
       services.AddControllers();
       services.AddSwaggerGen(c =>

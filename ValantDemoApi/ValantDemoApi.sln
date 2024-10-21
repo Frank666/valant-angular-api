@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31205.134
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValantDemoApi", "ValantDemoApi\ValantDemoApi.csproj", "{1FA8816A-A920-4B6E-8E7C-4F0E2F99F660}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValantDemoApi", "ValantDemoApi\ValantDemoApi.csproj", "{1FA8816A-A920-4B6E-8E7C-4F0E2F99F660}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValantDemoApi.Tests", "ValantDemoApi.Tests\ValantDemoApi.Tests.csproj", "{6A587664-C6B8-42B6-94BC-65F1D88EE4A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValantDemoApi.Tests", "ValantDemoApi.Tests\ValantDemoApi.Tests.csproj", "{6A587664-C6B8-42B6-94BC-65F1D88EE4A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValiantDemo.Core", "ValiantDemo.Core\ValiantDemo.Core.csproj", "{24D3747A-02BC-425F-A22E-5118567E3CD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValiantDemo.Abstractions", "ValiantDemo.Abstractions\ValiantDemo.Abstractions.csproj", "{4ACEB729-8B5C-4C77-9883-9AF4131BC2A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{6A587664-C6B8-42B6-94BC-65F1D88EE4A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A587664-C6B8-42B6-94BC-65F1D88EE4A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A587664-C6B8-42B6-94BC-65F1D88EE4A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24D3747A-02BC-425F-A22E-5118567E3CD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24D3747A-02BC-425F-A22E-5118567E3CD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24D3747A-02BC-425F-A22E-5118567E3CD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24D3747A-02BC-425F-A22E-5118567E3CD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ACEB729-8B5C-4C77-9883-9AF4131BC2A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ACEB729-8B5C-4C77-9883-9AF4131BC2A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ACEB729-8B5C-4C77-9883-9AF4131BC2A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ACEB729-8B5C-4C77-9883-9AF4131BC2A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

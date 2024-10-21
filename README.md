@@ -30,3 +30,24 @@ Run `ng build demo` to build the project. The build artifacts will be stored in 
 - Run `ng test demo` to execute the unit tests via [Jest](https://jestjs.io).
 - Run `nx affected:test` to execute the unit tests affected by a change.
 - Run `npm run test:all` to run all unit tests in watch mode. They will re-run automatically as you make changes that affect the tests.
+
+## Sample file
+
+The code is based in a template in order to work
+Please create a json file with below content:
+fileName: 'testMaze.json'
+content:
+{
+"name": "My Maze",
+"definition": [
+[" ", "#", "#", "#", "#"],
+[" ", " ", " ", " ", "#"],
+["#", " ", "#", " ", "#"],
+["#", " ", " ", " ", "#"],
+["#", "#", "#", " ", " "]
+],
+"startX": 0,
+"startY": 0,
+"endX": 4,
+"endY": 4
+}
