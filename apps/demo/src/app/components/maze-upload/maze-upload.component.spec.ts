@@ -29,14 +29,14 @@ describe('MazeUploadComponent', () => {
         { provide: MazeService, useValue: mazeServiceMock },
         { provide: NotificationService, useValue: notificationServiceMock },
       ],
-      schemas: [NO_ERRORS_SCHEMA], // Para evitar errores de componentes hijos
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MazeUploadComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges(); // Inicializa la detección de cambios
+    fixture.detectChanges();
   });
 
   it('should select a file', () => {
@@ -48,34 +48,34 @@ describe('MazeUploadComponent', () => {
     component.onFileSelected(event as any);
 
     // Assert
-    expect(component.selectedFile).toEqual(mockFile); // Verifica que el archivo seleccionado se guarde correctamente
+    expect(component.selectedFile).toEqual(mockFile);
   });
 
   it('should upload the selected file', () => {
     // Arrange
     const mockFile = new File([''], 'maze.json', { type: 'application/json' });
     component.selectedFile = mockFile;
-    mazeServiceMock.uploadMaze.mockReturnValue(of({})); // Simula una respuesta exitosa
+    mazeServiceMock.uploadMaze.mockReturnValue(of({}));
 
     // Act
     component.onUpload();
 
     // Assert
-    expect(mazeServiceMock.uploadMaze).toHaveBeenCalledWith(mockFile); // Verifica que se llamó al servicio con el archivo correcto
-    expect(notificationServiceMock.notify).toHaveBeenCalledWith('Maze uploaded successfully!'); // Verifica que se notifique el éxito
+    expect(mazeServiceMock.uploadMaze).toHaveBeenCalledWith(mockFile);
+    expect(notificationServiceMock.notify).toHaveBeenCalledWith('Maze uploaded successfully!');
   });
 
   it('should handle upload error', () => {
     // Arrange
     const mockFile = new File([''], 'maze.json', { type: 'application/json' });
     component.selectedFile = mockFile;
-    mazeServiceMock.uploadMaze.mockReturnValue(throwError('Upload failed')); // Simula un error
+    mazeServiceMock.uploadMaze.mockReturnValue(throwError('Upload failed'));
 
     // Act
     component.onUpload();
 
     // Assert
-    expect(mazeServiceMock.uploadMaze).toHaveBeenCalledWith(mockFile); // Verifica que se llamó al servicio con el archivo correcto
-    expect(notificationServiceMock.notify).toHaveBeenCalledWith('Failed to upload maze.'); // Verifica que se notifique el error
+    expect(mazeServiceMock.uploadMaze).toHaveBeenCalledWith(mockFile);
+    expect(notificationServiceMock.notify).toHaveBeenCalledWith('Failed to upload maze.');
   });
 });
